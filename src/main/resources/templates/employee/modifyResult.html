@@ -42,14 +42,14 @@
 			<th>퇴사여부</th>		
 		</tr>
 		<tr>
-			<td th:text="${afterModifyEmp.empId}"></td>
-			<td th:text="${afterModifyEmp.empName}"></td>
-			<td th:text="${afterModifyEmp.empNo}"></td>
-			<td th:text="${afterModifyEmp.dept?.deptTitle}"></td>
-			<td th:text="${afterModifyEmp.job.jobName}"></td>
-			<td th:text="${afterModifyEmp.salLevel.salLevel}"></td>
-			<td th:text="${afterModifyEmp.hireDate}"></td>
-			<td th:text="${afterModifyEmp.entYn}"></td>
+			<td th:text="${emp.empId}"></td>
+			<td th:text="${emp.empName}"></td>
+			<td th:text="${emp.empNo}"></td>
+			<td th:text="${emp.dept?.deptTitle}"></td>
+			<td th:text="${emp.job.jobName}"></td>
+			<td th:text="${emp.salLevel.salLevel}"></td>
+			<td th:text="${emp.hireDate}"></td>
+			<td th:text="${emp.entYn}"></td>
 		</tr>
 	</table>
 	<br>
