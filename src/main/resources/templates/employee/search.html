@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>querymethod</title>
+</head>
+<body>
+
+	<h3 align="center">사원이름으로 정보 조회</h3>
+
+	<div style="text-align: center">
+	<form action="/employee/searchName" method="post">
+		<label>검색 하실 사원 이름을 적어 주세요</label><br>
+		<input type="text" name="empName">
+		<input type="submit" value="검색">
+	</form>
+	</div>
+	
+	<h3 align="center">부서명으로 정보 조회</h3>
+	<div style="text-align: center">
+	<form action="/employee/search" method="post">
+		<label>검색 하실 부서명을 적어 주세요</label><br>
+		<input type="text" name="empName">
+		<input type="submit" value="검색">
+	</form>
+	</div>
+	
+	<h3 align="center">직급명으로 정보 조회</h3>
+	<div style="text-align: center">
+	<form action="/employee/search" method="post">
+		<label>검색 하실 직급명을 적어 주세요</label><br>
+		<input type="text" name="empName">
+		<input type="submit" value="검색">
+	</form>
+	</div>
+	
+	<div style="text-align: center;">
+	<br><button onclick="location.href='/main'">메인으로</button>
+	</div>
+	
+	
+
+</body>
+</html>

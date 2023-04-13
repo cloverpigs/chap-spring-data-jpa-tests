@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>list</title>
+
+<script>
+
+	const successMessage = '[[${message}]]';
+	if(successMessage) alert(successMessage);
+
+</script>
+
+</head>
+<body>
+	<h2 align="center">직원 리스트</h2>
+	<div style="text-align: center;">
+	<button onclick="location.href='/main'">메인으로</button><br><br>
+	</div>
+	
+		<table border="1" style="margin-right:auto; margin-left:auto">
+		<tr>
+			<th>사원 번호</th>
+			<th>사원 이름</th>
+			<th>주민번호</th>
+			<th>부서명</th>	
+			<th>직급</th>	
+			<th>급여등급</th>	
+			<th>입사일</th>	
+			<th>퇴사여부</th>		
+		</tr>
+		<tr th:each="emp : ${ empList }">
+			<td th:text="${emp.empId}"></td>
+			<td th:text="${emp.empName}"></td>
+			<td th:text="${emp.empNo}"></td>
+			<td th:text="${emp.dept?.deptTitle}"></td>
+			<td th:text="${emp.job.jobName}"></td>
+			<td th:text="${emp.salLevel.salLevel}"></td>
+			<td th:text="${emp.hireDate}"></td>
+			<td th:text="${emp.entYn}"></td>
+
+
+		</tr>
+		</table>
+
+</body>
+</html>
