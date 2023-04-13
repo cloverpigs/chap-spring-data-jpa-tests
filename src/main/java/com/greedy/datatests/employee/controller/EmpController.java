@@ -173,8 +173,8 @@ public class EmpController {
 	/* 사원 이름을 정보 조회 */
 	@GetMapping("/search")
 	public void searchPage() {}
-	
-	@PostMapping("/searchName")
+	/* 사원 이름으로 조회 */
+	@PostMapping("/searchEmpName")
 	public String findByEmpName(@RequestParam String empName, Model model) {
 		
 		List<EmployeeDTO> empList = empService.SearchEmpId(empName);
@@ -182,5 +182,6 @@ public class EmpController {
 		
 		return "employee/list";
 	}
+
 	
 }

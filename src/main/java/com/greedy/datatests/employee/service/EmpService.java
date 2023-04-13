@@ -143,24 +143,6 @@ public class EmpService {
 		return empList.stream().map(emp -> modelMapper.map(emp, EmployeeDTO.class)).collect(Collectors.toList());
 	}
 	
-	/* 부서 이름으로 조회(Query Method)*/
-	public List<DepartmentDTO> SearchdeptId(String deptId){
-		
-		List<Department> deptList = deptRepository.findBydeptNameContaining(deptId);
-		
-		log.info("[Service] SearchdeptId : {}", deptList);	
-		return deptList.stream().map(emp -> modelMapper.map(emp, EmployeeDTO.class)).collect(Collectors.toList());
-	}
-	
-	/* 직급 이름으로 조회(Query Method)*/
-	public List<JobDTO> SearchJobCode(String jobCode){
-		
-		List<Job> jobList = jobRepository.findByjobNameContaining(jobCode);
-		
-		log.info("[Service] SearchEmpId : {}" ,jobList);	
-		return jobList.stream().map(emp -> modelMapper.map(emp, EmployeeDTO.class)).collect(Collectors.toList());
-	}
-	
 	
 	
 	
