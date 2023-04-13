@@ -6,7 +6,8 @@
 </head>
 <body>
 	<h3 align="center">변경 전 사원 정보</h3>
-	<table border="1" style="margin-right:auto; margin-left:auto">
+	<table border="1" style="margin-right:auto; margin-left:auto; text-align: center;">
+		
 		<tr>
 			<th>사원 번호</th>
 			<th>사원 이름</th>
@@ -18,19 +19,19 @@
 			<th>퇴사여부</th>		
 		</tr>
 		<tr>
-			<td th:text="${beforeModifyEmp.empId}"></td>
-			<td th:text="${beforeModifyEmp.empName}"></td>
-			<td th:text="${beforeModifyEmp.empNo}"></td>
-			<td th:text="${beforeModifyEmp.dept?.deptTitle}"></td>
-			<td th:text="${beforeModifyEmp.job.jobName}"></td>
-			<td th:text="${beforeModifyEmp.salLevel.salLevel}"></td>
-			<td th:text="${beforeModifyEmp.hireDate}"></td>
-			<td th:text="${beforeModifyEmp.entYn}"></td>
+			<td th:text="${empMap[beforeModifyEmp].empId}"></td>
+			<td th:text="${empMap[beforeModifyEmp].empName}"></td>
+			<td th:text="${empMap[beforeModifyEmp].empNo}"></td>
+			<td th:text="${empMap[beforeModifyEmp].dept?.deptTitle}"></td>
+			<td th:text="${empMap[beforeModifyEmp].job.jobName}"></td>
+			<td th:text="${empMap[beforeModifyEmp].salLevel.salLevel}"></td>
+			<td th:text="${empMap[beforeModifyEmp].hireDate}"></td>
+			<td th:text="${empMap[beforeModifyEmp].entYn}"></td>
 		</tr>
 	</table>
 	<br>
 		<h3 align="center">변경 후 사원 정보</h3>
-	<table border="1" style="margin-right:auto; margin-left:auto">
+	<table border="1" style="margin-right:auto; margin-left:auto; text-align: center;">
 		<tr>
 			<th>사원 번호</th>
 			<th>사원 이름</th>
@@ -42,14 +43,14 @@
 			<th>퇴사여부</th>		
 		</tr>
 		<tr>
-			<td th:text="${emp.empId}"></td>
-			<td th:text="${emp.empName}"></td>
-			<td th:text="${emp.empNo}"></td>
-			<td th:text="${emp.dept?.deptTitle}"></td>
-			<td th:text="${emp.job.jobName}"></td>
-			<td th:text="${emp.salLevel.salLevel}"></td>
-			<td th:text="${emp.hireDate}"></td>
-			<td th:text="${emp.entYn}"></td>
+			<td th:text="${empMap[afterModifyEmp].empId}"></td>
+			<td th:text="${empMap[afterModifyEmp].empName}"></td>
+			<td th:text="${empMap[afterModifyEmp].empNo}"></td>
+			<td th:text="${empMap[afterModifyEmp].dept?.deptTitle}"></td>
+			<td th:text="${empMap[afterModifyEmp].job.jobName}"></td>
+			<td th:text="${empMap[afterModifyEmp].salLevel.salLevel}"></td>
+			<td th:text="${empMap[afterModifyEmp].hireDate}"></td>
+			<td th:text="${empMap[afterModifyEmp].entYn}"></td>
 		</tr>
 	</table>
 	<br>

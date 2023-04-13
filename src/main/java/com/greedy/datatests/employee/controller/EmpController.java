@@ -1,6 +1,8 @@
 package com.greedy.datatests.employee.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +25,7 @@ import com.greedy.datatests.employee.dto.SalLevelDTO;
 import com.greedy.datatests.employee.service.EmpService;
 
 import lombok.extern.slf4j.Slf4j;
+
 
 @Slf4j
 @Controller
@@ -129,10 +132,16 @@ public class EmpController {
 		
 		EmployeeDTO beforeModifyEmp = empService.findByEmpId(emp.getEmpId());
 		
-		rttr.addFlashAttribute("beforeModifyEmp", beforeModifyEmp);
-		
 		empService.modifyEmp(emp);
 		
+		EmployeeDTO afterModifyEmp = empService.findByEmpId(emp.getEmpId());
+		
+		Map<String, EmployeeDTO> empMap = new HashMap<>();
+		empMap.put("beforeModifyEmp", beforeModifyEmp);
+		empMap.put("afterModifyEmp", afterModifyEmp);
+		
+		rttr.addFlashAttribute("empMap", empMap);
+	
 		log.info("[Controller] modifyEmp emp: {}", emp);
 		
 		return "redirect:/employee/"+ emp.getEmpId();
