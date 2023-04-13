@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>one</title>
+</head>
+<body>
+	<h3 align="center">변경 전 사원 정보</h3>
+	<table border="1" style="margin-right:auto; margin-left:auto">
+		<tr>
+			<th>사원 번호</th>
+			<th>사원 이름</th>
+			<th>주민번호</th>
+			<th>부서명</th>	
+			<th>직급</th>	
+			<th>급여등급</th>	
+			<th>입사일</th>	
+			<th>퇴사여부</th>		
+		</tr>
+		<tr>
+			<td th:text="${beforeModifyEmp.empId}"></td>
+			<td th:text="${beforeModifyEmp.empName}"></td>
+			<td th:text="${beforeModifyEmp.empNo}"></td>
+			<td th:text="${beforeModifyEmp.dept?.deptTitle}"></td>
+			<td th:text="${beforeModifyEmp.job.jobName}"></td>
+			<td th:text="${beforeModifyEmp.salLevel.salLevel}"></td>
+			<td th:text="${beforeModifyEmp.hireDate}"></td>
+			<td th:text="${beforeModifyEmp.entYn}"></td>
+		</tr>
+	</table>
+	<br>
+		<h3 align="center">변경 후 사원 정보</h3>
+	<table border="1" style="margin-right:auto; margin-left:auto">
+		<tr>
+			<th>사원 번호</th>
+			<th>사원 이름</th>
+			<th>주민번호</th>
+			<th>부서명</th>	
+			<th>직급</th>	
+			<th>급여등급</th>	
+			<th>입사일</th>	
+			<th>퇴사여부</th>		
+		</tr>
+		<tr>
+			<td th:text="${afterModifyEmp.empId}"></td>
+			<td th:text="${afterModifyEmp.empName}"></td>
+			<td th:text="${afterModifyEmp.empNo}"></td>
+			<td th:text="${afterModifyEmp.dept?.deptTitle}"></td>
+			<td th:text="${afterModifyEmp.job.jobName}"></td>
+			<td th:text="${afterModifyEmp.salLevel.salLevel}"></td>
+			<td th:text="${afterModifyEmp.hireDate}"></td>
+			<td th:text="${afterModifyEmp.entYn}"></td>
+		</tr>
+	</table>
+	<br>
+	<div style="text-align: center;">
+		<button onclick="location.href='/main'" >메인으로</button><br><br>
+	</div>
+
+</body>
+</html>

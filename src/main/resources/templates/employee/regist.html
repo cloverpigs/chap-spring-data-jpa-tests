@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>regist</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+	<h2 align="center">신입사원 등록</h2>
+	<div style="display: flex; justify-content: center;">
+	<form method="post" action="/employee/regist">
+		<label>사원 번호 : </label><input type="text" name="empId" id="empId"><br>
+		<label>사원 이름 : </label><input type="text" name="empName"><br>
+		<label>주민번호 (- 포함): </label><input type="text" name="empNo"><br>
+		<label>부서명 : </label>
+		<select name="dept.deptId" id="deptName">
+		</select><br>
+		<label>직급 : </label>
+		<select name="job.jobCode" id="jobName">
+		</select><br>
+		<label>급여등급 : </label>
+		<select name="salLevel.salLevel" id="salLevel">
+		</select><br>
+		<label>입사일 : </label><input type="date" name="hireDate"><br>
+		<input type="submit" value="등록하기">
+		<input type="button" value="메인으로" onclick="location.href='/main'">
+	</form>
+	</div>
+		<script>
+		$(function(){
+			document.getElementById("empId").addEventListener('click', function(event){
+				document.getElementById("empId").value = "";
+				document.getElementById("empId").style.color ="black";
+			});
+			
+			$("#empId").on("change", function(){
+				
+				let empId =$("#empId").val(); 
+				
+				$.ajax({
+					
+					url : '/employee/findByEmpId',
+					dataType: 'json',
+					data: {
+						empId: empId
+					},
+					success : function(data){
+						
+						if(empId === data.empId){
+							document.getElementById("empId").value = "중복된 사원번호 입니다."
+							document.getElementById("empId").style.color ="red";
+						}
+						
+						
+					},
+					error : function(xhr){
+						console.log(xhr);
+					}
+					
+				})
+				
+			});
+			
+			$.ajax({
+				url : '/employee/dept',
+				success : function(data){
+					console.log(data)
+					
+					let html="";
+					
+					for (let index in data) {
+						html += `<option value='${data[index].deptId}'>${data[index].deptTitle}</option>`;
+					}
+					
+					document.querySelector("#deptName").insertAdjacentHTML('beforeend',html);
+				},
+				error : function(xhr){
+					console.log(xhr)
+				}
+				
+				
+			});
+			
+			$.ajax({
+				url : '/employee/job',
+				success : function(data){
+					console.log(data)
+					
+					let html="";
+					
+					for (let index in data) {
+						html += `<option value='${data[index].jobCode}'>${data[index].jobName}</option>`;
+					}
+					
+					document.querySelector("#jobName").insertAdjacentHTML('beforeend',html);
+				},
+				error : function(xhr){
+					console.log(xhr)
+				}
+				
+				
+			});
+			
+			$.ajax({
+				url : '/employee/sal',
+				success : function(data){
+					console.log(data)
+					
+					let html="";
+					
+					for (let index in data) {
+						html += `<option value='${data[index].salLevel}'>${data[index].salLevel}</option>`;
+					}
+					
+					document.querySelector("#salLevel").insertAdjacentHTML('beforeend',html);
+				},
+				error : function(xhr){
+					console.log(xhr)
+				}
+				
+				
+			});
+			
+		});
+	
+	</script>
+
+</body>
+</html>
