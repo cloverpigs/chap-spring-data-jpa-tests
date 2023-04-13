@@ -144,19 +144,11 @@ public class EmpController {
 	
 		log.info("[Controller] modifyEmp emp: {}", emp);
 		
-		return "redirect:/employee/"+ emp.getEmpId();
+		return "redirect:/employee/modifyResult";
 	}
 	
-	/* 수정된 사원 정보 결과 페이지 */
-	@GetMapping("/{empId}")
-	public String modifyResult(@PathVariable String empId, Model model) {
-		log.info("[Controller] modifyResult empId: {}", empId);
-		EmployeeDTO emp = empService.findByEmpId(empId);
-		
-		model.addAttribute("emp", emp);
-		
-		return "employee/modifyResult";
-	}
+	@GetMapping("/modifyResult")
+	public void modifyResultPage() {}
 	
 	
 	/* 사원 정보 삭제 페이지*/
